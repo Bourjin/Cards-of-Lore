@@ -1,5 +1,3 @@
 # ignore all .txt files
 *.txt
 *.exe
-/.vscode
-/run_card_game
