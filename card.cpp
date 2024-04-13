@@ -20,6 +20,7 @@ Card::Card()
   cardMinAtk = 0;
   cardHth = 0;
   cardMaxHth = 0;
+  aura = false;
 }
 void Card::setCardText(int card_num)
 {

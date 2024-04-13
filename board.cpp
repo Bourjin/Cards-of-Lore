@@ -20,9 +20,11 @@ Board::Board()
     p1_health = 25;
     p1_mana = 0;
     p1_max_mana = 0;
+    p1_deck_count = 0;
     p2_health = 25;
     p2_mana = 0;
     p2_max_mana = 0;
+    p2_deck_count = 0;
     log_mode = false;
     p2_hand.setPlayer(2);
     aura = false;
@@ -64,7 +66,7 @@ void Board::deck_copy(Deck caseDeck, bool me)
   vector<Card> caseVec;
   vector<Card> deckVec;
   CardNode* currPtr = caseDeck.getDeckHead();
-  CardNode* prevPtr;
+  CardNode* prevPtr = nullptr;
   int randNum;
 
   // Creates case deck vector
