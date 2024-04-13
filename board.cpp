@@ -1413,15 +1413,15 @@ void Board::ExCDB_effects(int p, int cardNum)
     default: break;
   }
 }
-void Board::aura_check(const CardDB& CDB, Card& currentCard)
+void Board::aura_check(const CardDB& CDB, Card& playedCard)
 { 
   // (12) Centaur - Beasts have +2 Atk
   for(int i = 0; i < p1_field.size(); i++)
   {
     if(p1_field[i].getCardNum() == 12 && currentCard.getCardMinType() == "Beast")
     {
-      currentCard.changeCardMinAtk(2);
-      currentCard.changeCardAtk(2);
+      playedCard.changeCardMinAtk(2);
+      playedCard.changeCardAtk(2);
     }
   }
   return;
