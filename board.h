@@ -48,7 +48,7 @@ class Board
     ~Board(){}
     void gameplay(CardDB,ExCardDB);
     void deck_copy(Deck,bool);
-    BoardDeck getDeck(int);
+    BoardDeck getDeck(int) const;
     void printDeck(BoardDeck);
 
     void player_turn(const CardDB&);

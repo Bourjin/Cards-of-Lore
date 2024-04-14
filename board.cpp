@@ -105,7 +105,7 @@ void Board::deck_copy(Deck caseDeck, bool me)
     }
   }
 }
-BoardDeck Board::getDeck(int player)
+BoardDeck Board::getDeck(int player) const
 {
   if(player == 1)
     return p1_deck;
@@ -121,8 +121,8 @@ void Board::player_turn(const CardDB& CDB)
   int player;
   int atk;
   string phrase;
-  CardNode* p1_cursor;
-  CardNode* p2_cursor;
+  CardNode* p1_cursor = nullptr;
+  CardNode* p2_cursor = nullptr;
   bool valid;
   
   do
@@ -493,7 +493,6 @@ void Board::print_hand(int p)
 }
 void Board::print_line_hand(int p, int start, int end)
 {
-  int s;
   if(p == 1)
   {
     if(p1_hand.size() == 0)
@@ -929,7 +928,6 @@ void Board::print_field(int p)
 }
 void Board::print_line(int p, int start, int end)
 {
-  int s;
   if(p == 1)
   {
     if(p1_field.size() == 0)
@@ -1029,7 +1027,6 @@ void Board::print_line(int p, int start, int end)
 }
 void Board::cardStatLine(int p)
 {
-  int s;
   if(p == 1)
   {
     if(p1_field.size() == 0)
@@ -1418,7 +1415,7 @@ void Board::aura_check(const CardDB& CDB, Card& playedCard)
   // (12) Centaur - Beasts have +2 Atk
   for(int i = 0; i < p1_field.size(); i++)
   {
-    if(p1_field[i].getCardNum() == 12 && currentCard.getCardMinType() == "Beast")
+    if(p1_field[i].getCardNum() == 12 && playedCard.getCardMinType() == "Beast")
     {
       playedCard.changeCardMinAtk(2);
       playedCard.changeCardAtk(2);
